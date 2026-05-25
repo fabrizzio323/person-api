@@ -1,3 +1,4 @@
+# This is a sample Spring Boot application configuration file (application.yml) that sets up the server port, file upload directory, and database connection properties for a PostgreSQL database. The database connection properties are configured to use environment variables for flexibility and security.
 server:
   port: 8086
 file:
