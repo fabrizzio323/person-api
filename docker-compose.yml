@@ -1,0 +1,41 @@
+version: "3.3"
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: person-db
+    environment:
+      POSTGRES_DB: persondb
+      POSTGRES_USER: personuser
+      POSTGRES_PASSWORD: personpass
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - person_network
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: person-api
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_PORT: "5432"
+      DB_NAME: persondb
+      DB_USER: personuser
+      DB_PASSWORD: personpass
+    ports:
+      - "8086:8086"
+    networks:
+      - person_network
+
+volumes:
+  postgres_data:
+
+networks:
+  person_network:
+    driver: bridge
