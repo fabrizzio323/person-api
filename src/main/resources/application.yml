@@ -1,4 +1,5 @@
 # This is a sample Spring Boot application configuration file (application.yml) that sets up the server port, file upload directory, and database connection properties for a PostgreSQL database. The database connection properties are configured to use environment variables for flexibility and security.
+# The `ddl-auto: update` setting for JPA Hibernate will automatically update the database schema based on the entity classes, which is useful during development but should be used with caution in production environments.
 server:
   port: 8086
 file:
