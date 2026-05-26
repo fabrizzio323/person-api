@@ -19,7 +19,7 @@ public class OpenApiConfig {
        return new OpenAPI()
                .servers(List.of(server))
                .info(new Info()
-                       .title("Helllo Swagger, OpenApi")
+                       .title("Helllo Swagger, OpenApi - Deployed in AWS")
                        .version("1.0.0")
                        .description("This is a sample Spring Boot RESTful service using springdoc-openapi and")
                        .license(new License()
